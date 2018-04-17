@@ -117,7 +117,7 @@ class Zend_Translate_Adapter_ArrayTest extends PHPUnit\Framework\TestCase
 
         try {
             $adapter->addTranslation(dirname(__FILE__) . '/_files/translation_en.php', 'xx');
-            $this->fail("exception expected");
+            $this->fail('exception expected');
         } catch (Zend_Translate_Exception $e) {
             $this->assertContains('does not exist', $e->getMessage());
         }
@@ -176,7 +176,7 @@ class Zend_Translate_Adapter_ArrayTest extends PHPUnit\Framework\TestCase
 
         try {
             $adapter->setLocale('nolocale');
-            $this->fail("exception expected");
+            $this->fail('exception expected');
         } catch (Zend_Translate_Exception $e) {
             $this->assertContains('does not exist', $e->getMessage());
         }
@@ -261,9 +261,12 @@ class Zend_Translate_Adapter_ArrayTest extends PHPUnit\Framework\TestCase
 
     public function testCaching()
     {
-        $cache = Zend_Cache::factory('Core', 'File',
-            array('lifetime' => 120, 'automatic_serialization' => true),
-            array('cache_dir' => dirname(__FILE__) . '/_files/'));
+        $cache = Zend_Cache::factory(
+            'Core',
+            'File',
+            array('lifetime'  => 120, 'automatic_serialization' => true),
+            array('cache_dir' => dirname(__FILE__) . '/_files/')
+        );
 
         $this->assertFalse(Zend_Translate_Adapter_Array::hasCache());
         Zend_Translate_Adapter_Array::setCache($cache);
@@ -272,7 +275,7 @@ class Zend_Translate_Adapter_ArrayTest extends PHPUnit\Framework\TestCase
         $adapter = new Zend_Translate_Adapter_Array(dirname(__FILE__) . '/_files/translation_en.php', 'en');
         $cache   = Zend_Translate_Adapter_Array::getCache();
         $this->assertTrue($cache instanceof Zend_Cache_Core);
-        unset ($adapter);
+        unset($adapter);
 
         $adapter = new Zend_Translate_Adapter_Array(dirname(__FILE__) . '/_files/translation_en.php', 'en');
         $cache   = Zend_Translate_Adapter_Array::getCache();
@@ -291,9 +294,12 @@ class Zend_Translate_Adapter_ArrayTest extends PHPUnit\Framework\TestCase
 
     public function testLoadingFilesIntoCacheAfterwards()
     {
-        $cache = Zend_Cache::factory('Core', 'File',
-            array('lifetime' => 120, 'automatic_serialization' => true),
-            array('cache_dir' => dirname(__FILE__) . '/_files/'));
+        $cache = Zend_Cache::factory(
+            'Core',
+            'File',
+            array('lifetime'  => 120, 'automatic_serialization' => true),
+            array('cache_dir' => dirname(__FILE__) . '/_files/')
+        );
 
         $this->assertFalse(Zend_Translate_Adapter_Array::hasCache());
         Zend_Translate_Adapter_Array::setCache($cache);
