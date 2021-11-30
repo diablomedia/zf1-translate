@@ -30,7 +30,6 @@ class Zend_Translate_Adapter_Tbx extends Zend_Translate_Adapter
 {
     // Internal variables
     private $_file      = false;
-    private $_cleared   = array();
     private $_langset   = null;
     private $_termentry = null;
     private $_content   = null;

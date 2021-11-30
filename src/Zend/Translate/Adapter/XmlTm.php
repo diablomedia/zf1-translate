@@ -30,7 +30,6 @@ class Zend_Translate_Adapter_XmlTm extends Zend_Translate_Adapter
 {
     // Internal variables
     private $_file    = false;
-    private $_cleared = array();
     private $_lang    = null;
     private $_content = null;
     private $_tag     = null;
