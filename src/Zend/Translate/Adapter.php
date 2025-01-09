@@ -39,7 +39,7 @@ abstract class Zend_Translate_Adapter
 
     /**
      * Internal value to see already routed languages
-     * @var array()
+     * @var array
      */
     private $_routed = array();
 
