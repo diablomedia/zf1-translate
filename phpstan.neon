@@ -1,5 +1,6 @@
 parameters:
     inferPrivatePropertyTypeFromConstructor: true
+    treatPhpDocTypesAsCertain: false
     level: 4
     paths:
         - ./
@@ -14,49 +15,8 @@ parameters:
         - '#PHPDoc tag @param references unknown parameter: \$locale#'
         - '#PHPDoc tag @param references unknown parameter: \$args#'
         -
-            message: '#Offset string on array{} in isset\(\) does not exist\.#'
+            message: '#Offset mixed on array{} in isset\(\) does not exist\.#'
             path: ./src/Zend/Translate/Adapter/Array.php
         -
-            message: '#Offset string on array{} in isset\(\) does not exist\.#'
+            message: '#Offset mixed on array{} in isset\(\) does not exist\.#'
             path: ./src/Zend/Translate/Adapter/Ini.php
-        # Defensive coding, argument can be multiple types
-        -
-            message: '#Result of \|\| is always true\.#'
-            path: ./src/Zend/Translate/Adapter.php
-        # These are used through some xml methods
-        -
-            message: '#Method Zend_Translate_Adapter_Qt::_startElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/Qt.php
-        -
-            message: '#Method Zend_Translate_Adapter_Qt::_endElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/Qt.php
-        -
-            message: '#Method Zend_Translate_Adapter_Qt::_contentElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/Qt.php
-        -
-            message: '#Method Zend_Translate_Adapter_Tbx::_startElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/Tbx.php
-        -
-            message: '#Method Zend_Translate_Adapter_Tbx::_endElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/Tbx.php
-        -
-            message: '#Method Zend_Translate_Adapter_Tbx::_contentElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/Tbx.php
-        -
-            message: '#Method Zend_Translate_Adapter_Xliff::_startElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/Xliff.php
-        -
-            message: '#Method Zend_Translate_Adapter_Xliff::_endElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/Xliff.php
-        -
-            message: '#Method Zend_Translate_Adapter_Xliff::_contentElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/Xliff.php
-        -
-            message: '#Method Zend_Translate_Adapter_XmlTm::_startElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/XmlTm.php
-        -
-            message: '#Method Zend_Translate_Adapter_XmlTm::_endElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/XmlTm.php
-        -
-            message: '#Method Zend_Translate_Adapter_XmlTm::_contentElement\(\) is unused\.#'
-            path: ./src/Zend/Translate/Adapter/XmlTm.php
