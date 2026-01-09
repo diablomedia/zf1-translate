@@ -77,7 +77,6 @@ class Zend_Translate_Adapter_Qt extends Zend_Translate_Adapter
                 xml_get_current_line_number($this->_file),
                 $filename
             );
-            xml_parser_free($this->_file);
             throw new Zend_Translate_Exception($ex);
         }
 
