@@ -56,7 +56,7 @@ class Zend_Translate_Adapter_Tmx extends Zend_Translate_Adapter
         }
 
         if (isset($options['useId'])) {
-            $this->_useId = (boolean) $options['useId'];
+            $this->_useId = (bool) $options['useId'];
         }
 
         $encoding    = $this->_findEncoding($filename);
@@ -80,7 +80,6 @@ class Zend_Translate_Adapter_Tmx extends Zend_Translate_Adapter
                 xml_get_current_line_number($this->_file),
                 $filename
             );
-            xml_parser_free($this->_file);
             throw new Zend_Translate_Exception($ex);
         }
 
@@ -182,8 +181,8 @@ class Zend_Translate_Adapter_Tmx extends Zend_Translate_Adapter
                         $this->_tu = $this->_content;
                     }
 
-                    if (!empty($this->_content) or (!isset($this->_data[$this->_tuv][$this->_tu]))) {
-                        $this->_data[$this->_tuv][$this->_tu] = $this->_content;
+                    if (!empty($this->_content) or (!isset($this->_data[(string) $this->_tuv][(string) $this->_tu]))) {
+                        $this->_data[(string) $this->_tuv][(string) $this->_tu] = $this->_content;
                     }
                     break;
                 default:
